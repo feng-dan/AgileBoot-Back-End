@@ -22,11 +22,12 @@ public class MessageI18nCheckerRunner implements ApplicationRunner {
     @Value("agileboot.checkI18nKey")
     private String checkI18nKey;
 
-    public static Object[] allErrorCodes = ArrayUtil.addAll(
+    protected static Object[] allErrorCodes = ArrayUtil.addAll(
         ErrorCode.Internal.values(),
         ErrorCode.External.values(),
         ErrorCode.Client.values(),
         ErrorCode.Business.values());
+
 
     @Override
     public void run(ApplicationArguments args) {

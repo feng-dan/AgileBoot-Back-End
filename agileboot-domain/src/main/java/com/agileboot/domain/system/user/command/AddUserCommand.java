@@ -3,6 +3,8 @@ package com.agileboot.domain.system.user.command;
 import com.agileboot.common.annotation.ExcelColumn;
 import lombok.Data;
 
+import javax.validation.constraints.Positive;
+
 /**
  * @author valarchie
  */
@@ -34,6 +36,7 @@ public class AddUserCommand {
     private String password;
 
     @ExcelColumn(name = "状态")
+    @Positive(message = "{Business.STATUS_POSITIVE_MESSAGE}")
     private Integer status;
 
     @ExcelColumn(name = "角色ID")

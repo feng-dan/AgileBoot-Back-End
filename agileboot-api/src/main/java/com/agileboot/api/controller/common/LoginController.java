@@ -4,10 +4,11 @@ import cn.hutool.core.map.MapUtil;
 import com.agileboot.api.customize.service.JwtTokenService;
 import com.agileboot.common.core.base.BaseController;
 import com.agileboot.common.core.dto.ResponseDTO;
-import java.util.Map;
+import com.agileboot.domain.system.user.command.AddUserCommand;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.AccessDeniedException;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +34,10 @@ public class LoginController extends BaseController {
     }
 
 
+    @PostMapping("/submitUserInfo")
+    public ResponseDTO<AddUserCommand> post(@Validated @RequestBody AddUserCommand command) {
+        return ResponseDTO.ok(command);
+    }
 
 
 }
